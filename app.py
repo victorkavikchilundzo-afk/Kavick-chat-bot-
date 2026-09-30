@@ -44,6 +44,12 @@ body {
 }
 
 .logo {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 15px;
+}
     width: 70px;
     height: 70px;
     background: white;
@@ -119,7 +125,7 @@ button:hover {
 
 <div class="container">
 
-<div class="logo">K</div>
+<img src="/logo.png" class="logo">
 
 <h1>KAVICK CHAT BOT</h1>
 
