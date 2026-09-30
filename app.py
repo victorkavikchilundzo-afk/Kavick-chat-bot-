@@ -9,31 +9,155 @@ URL = "https://api.groq.com/openai/v1/chat/completions"
 
 HTML = """
 <!DOCTYPE html>
-<html>
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kavick Chat Bot</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kavick Chat Bot</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e3a8a);
+    min-height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 650px;
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+}
+
+.logo {
+    width: 70px;
+    height: 70px;
+    background: white;
+    color: #1e3a8a;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+h1 {
+    text-align: center;
+    margin: 5px 0;
+    font-size: 30px;
+}
+
+.subtitle {
+    text-align: center;
+    opacity: 0.8;
+    margin-bottom: 25px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 130px;
+    border: none;
+    border-radius: 15px;
+    padding: 15px;
+    font-size: 16px;
+    resize: vertical;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    margin-top: 15px;
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    background: white;
+    color: #1e3a8a;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.02);
+}
+
+.answer {
+    margin-top: 25px;
+    background: rgba(0,0,0,0.25);
+    padding: 20px;
+    border-radius: 15px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    opacity: 0.65;
+}
+</style>
 </head>
+
 <body>
 
+<div class="container">
+
+<div class="logo">K</div>
+
 <h1>KAVICK CHAT BOT</h1>
-<p>Assistente Inteligente com IA Generativa</p>
+
+<div class="subtitle">
+Assistente Inteligente com IA Generativa
+</div>
 
 <form method="POST">
-    <textarea name="pergunta"
-    placeholder="Digite a sua pergunta..."
-    rows="5"
-    style="width:90%;"></textarea>
 
-    <br><br>
-    <button type="submit">Perguntar</button>
+<textarea
+name="pergunta"
+placeholder="Digite a sua pergunta..."
+required></textarea>
+
+<button type="submit">
+🤖 Perguntar à IA
+</button>
+
 </form>
 
 {% if resposta %}
-<h2>Resposta:</h2>
-<div style="white-space: pre-wrap;">{{ resposta }}</div>
+
+<div class="answer">
+<strong>🤖 Kavick Chat Bot:</strong>
+
+<br><br>
+
+{{ resposta }}
+
+</div>
+
 {% endif %}
+
+<div class="footer">
+Projeto escolar • IA Generativa • Python • Robótica
+</div>
+
+</div>
 
 </body>
 </html>
@@ -95,6 +219,7 @@ def inicio():
     resposta = ""
 
     if request.method == "POST":
+
         pergunta = request.form.get("pergunta", "")
 
         if pergunta:
