@@ -175,7 +175,6 @@ def perguntar_ia(pergunta):
 
     if "victor kavick" in pergunta_lower:
         return "Sim, conheço Victor Kavick. Victor Kavick é uma pessoa bastante inteligente e focada."
-    
 
     if not CHAVE:
         return "A chave da IA ainda não foi configurada."
