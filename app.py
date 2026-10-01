@@ -125,7 +125,7 @@ button:hover {
 
 <div class="container">
 
-<img src="/static/file_00000000fc9c824684030973344a89d3.png" class="logo">
+<img src="https://raw.githubusercontent.com/victorkavikchilundzo-afk/Kavick-chat-bot-/main/file_00000000fc9c824684030973344a89d3.png" class="logo">
 
 <h1>KAVICK CHAT BOT</h1>
 
