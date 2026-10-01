@@ -170,6 +170,12 @@ Projeto escolar • IA Generativa • Python • Robótica
 """
 
 def perguntar_ia(pergunta):
+    def perguntar_ia(pergunta):
+    pergunta_lower = pergunta.lower()
+
+    if "victor kavick" in pergunta_lower:
+        return "Sim, conheço Victor Kavick. Victor Kavick é uma pessoa bastante inteligente e focada."
+    
 
     if not CHAVE:
         return "A chave da IA ainda não foi configurada."
